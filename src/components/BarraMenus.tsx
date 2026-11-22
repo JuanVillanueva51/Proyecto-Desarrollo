@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { MENUS } from "@/lib/menus";
+import { abrirVentana } from "@/lib/eventos";
+import { MENUS, type ConjuntoMenus } from "@/lib/menus";
 
-// Barra de menús de tablones. Por ahora los menús solo se abren y cierran.
-export function BarraMenus() {
+export function BarraMenus({ conjunto }: { conjunto: ConjuntoMenus }) {
   const [abierto, setAbierto] = useState<string | null>(null);
   const ref = useRef<HTMLElement>(null);
 
@@ -23,13 +24,16 @@ export function BarraMenus() {
     };
   }, []);
 
+  const claseItem =
+    "flex w-full items-center justify-between gap-10 px-3 py-0.5 text-left text-xl text-mc-menu-tinta hover:bg-mc-seleccion hover:text-white";
+
   return (
     <nav
       ref={ref}
       aria-label="Menú principal"
       className="textura-tablones relative z-30 flex flex-wrap items-center gap-0.5 border-b-4 border-black px-2 py-0.5"
     >
-      {MENUS.map((menu) => {
+      {MENUS[conjunto].map((menu) => {
         const estaAbierto = abierto === menu.nombre;
         return (
           <div key={menu.nombre} className="relative">
@@ -40,7 +44,7 @@ export function BarraMenus() {
               onClick={() => setAbierto(estaAbierto ? null : menu.nombre)}
               onMouseEnter={() => abierto && setAbierto(menu.nombre)}
               className={`px-3 py-0.5 text-xl ${
-                estaAbierto ? "bg-[#2a1a0b] text-mc-menu" : "text-[#2a1a0b] hover:bg-black/15"
+                estaAbierto ? "bg-mc-tablon-tinta text-mc-tablon" : "text-mc-tablon-tinta hover:bg-black/15"
               }`}
             >
               {menu.nombre}
@@ -54,18 +58,28 @@ export function BarraMenus() {
               >
                 {menu.items.map((item, i) =>
                   item.tipo === "separador" ? (
-                    <li key={i} role="separator" className="my-1 h-0.5 bg-[#5a4020]" />
+                    <li key={i} role="separator" className="my-1 h-0.5 bg-mc-menu-linea" />
                   ) : (
                     <li key={i} role="none">
-                      <button
-                        type="button"
-                        role="menuitem"
-                        onClick={() => setAbierto(null)}
-                        className="flex w-full items-center justify-between gap-10 px-3 py-0.5 text-left text-xl text-[#1e1205] hover:bg-mc-seleccion hover:text-white"
-                      >
-                        <span>{item.etiqueta}</span>
-                        <span>{item.atajo ?? (item.submenu ? "▸" : "")}</span>
-                      </button>
+                      {item.href ? (
+                        <Link href={item.href} role="menuitem" onClick={() => setAbierto(null)} className={claseItem}>
+                          <span>{item.etiqueta}</span>
+                          <span>{item.atajo ?? ""}</span>
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          role="menuitem"
+                          onClick={() => {
+                            setAbierto(null);
+                            if (item.ventana) abrirVentana(item.ventana);
+                          }}
+                          className={claseItem}
+                        >
+                          <span>{item.etiqueta}</span>
+                          <span>{item.atajo ?? (item.submenu ? "▸" : "")}</span>
+                        </button>
+                      )}
                     </li>
                   )
                 )}

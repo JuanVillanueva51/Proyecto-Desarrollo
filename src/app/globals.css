@@ -1,34 +1,173 @@
 @import "tailwindcss";
 
-/* ───────── Colores del tema de bloques ───────── */
-@theme {
-  --color-mc-fondo: #2b2b2b;
-  --color-mc-piedra: #5f5f5f;
-  --color-mc-boton: #6f6f6f;
-  --color-mc-panel: #c6c6c6;
-  --color-mc-casilla: #8b8b8b;
-  --color-mc-pizarra: #3a3a3f;
-  --color-mc-tierra: #4a3424;
-  --color-mc-tablon: #a6824f;
-  --color-mc-tablon-oscuro: #7d5f35;
-  --color-mc-menu: #c9a46a;
-  --color-mc-pasto: #5d9b3a;
-  --color-mc-oro: #ffff55;
-  --color-mc-seleccion: #4a54a0;
-  --color-mc-hover: #7d86c4;
-  --color-mc-tinta: #1e1e1e;
-  --color-mc-ayuda: #3f3f3f;
+:root,
+[data-dimension="overworld"] {
+  --d-fondo: #2b2b2b;
+  --d-piedra: #5f5f5f;
+  --d-pizarra: #3a3a3f;
+  --d-suelo: #4a3424;
+  --d-tablon: #a6824f;
+  --d-tablon-oscuro: #7d5f35;
+  --d-tablon-tinta: #2a1a0b;
+  --d-menu: #c9a46a;
+  --d-menu-tinta: #1e1205;
+  --d-menu-linea: #5a4020;
+  --d-oro: #ffff55;
+  --d-panel: #c6c6c6;
+  --d-panel-alto: #ffffff;
+  --d-panel-bajo: #555555;
+  --d-casilla: #8b8b8b;
+  --d-boton: #6f6f6f;
+  --d-boton-alto: #a9a9a9;
+  --d-boton-bajo: #3a3a3a;
+  --d-seleccion: #4a54a0;
+  --d-hover: #6f78bd;
+  --d-confirmar: #3f8a2c;
+  --d-tinta: #1e1e1e;
+  --d-ayuda: #3f3f3f;
+  --d-consola: #1b1b1b;
+  --d-suave: #d0d0d0;
+  --d-mision: #3b3f42;
+  --d-mision-panel: #1c1e20;
+  --d-mision-alto: #26292b;
+  --d-mision-borde: #121314;
+  --d-mision-nodo: #4a4f54;
+  --d-lienzo: #2f3a2a;
+  --d-cable: #d42a2a;
+  --d-bloque-a: #5d9b3a;
+  --d-bloque-b: #7a5233;
+  --d-bloque-c: #5b3c25;
+  --d-bloque-d: #9a6c45;
+  --d-cofre-a: #c8954f;
+  --d-cofre-b: #a06a2f;
+  --d-cofre-c: #2d1c0c;
+  --d-cofre-d: #d0d0d5;
+  --d-portada: url("/hero.jpg");
 }
 
-/* Fuentes cargadas con next/font en layout.tsx */
+[data-dimension="nether"] {
+  --d-fondo: #1f1414;
+  --d-piedra: #3d2e33;
+  --d-pizarra: #2b2427;
+  --d-suelo: #6b2222;
+  --d-tablon: #7e3a56;
+  --d-tablon-oscuro: #5a2640;
+  --d-tablon-tinta: #fbe8ee;
+  --d-menu: #a8546f;
+  --d-menu-tinta: #ffffff;
+  --d-menu-linea: #5a2640;
+  --d-oro: #ffaa00;
+  --d-panel: #d3c3c3;
+  --d-panel-alto: #fff4f4;
+  --d-panel-bajo: #5e4343;
+  --d-casilla: #8e7474;
+  --d-boton: #6e3b3b;
+  --d-boton-alto: #a76c6c;
+  --d-boton-bajo: #3a1d1d;
+  --d-seleccion: #8a2020;
+  --d-hover: #a8443e;
+  --d-confirmar: #8a5a12;
+  --d-tinta: #1e1212;
+  --d-ayuda: #4a3232;
+  --d-consola: #1a0f0f;
+  --d-suave: #e0cccc;
+  --d-mision: #3a2a2a;
+  --d-mision-panel: #201414;
+  --d-mision-alto: #2c1c1c;
+  --d-mision-borde: #120a0a;
+  --d-mision-nodo: #5a3a3a;
+  --d-lienzo: #3a1f1f;
+  --d-cable: #ff8a1a;
+  --d-bloque-a: #b02e26;
+  --d-bloque-b: #6b2222;
+  --d-bloque-c: #4a1616;
+  --d-bloque-d: #8a3434;
+  --d-cofre-a: #8e4a64;
+  --d-cofre-b: #6a344d;
+  --d-cofre-c: #2a0f1a;
+  --d-cofre-d: #ffaa00;
+  --d-portada: url("/hero-nether.jpg");
+}
+
+[data-dimension="end"] {
+  --d-fondo: #150f1c;
+  --d-piedra: #5e4568;
+  --d-pizarra: #1f1529;
+  --d-suelo: #2a1838;
+  --d-tablon: #a77aa8;
+  --d-tablon-oscuro: #7e5580;
+  --d-tablon-tinta: #241030;
+  --d-menu: #c9a6cc;
+  --d-menu-tinta: #1e0f26;
+  --d-menu-linea: #6e4a72;
+  --d-oro: #f3e98a;
+  --d-panel: #d6cde0;
+  --d-panel-alto: #ffffff;
+  --d-panel-bajo: #5a4a66;
+  --d-casilla: #8f7f9c;
+  --d-boton: #5b4570;
+  --d-boton-alto: #9b84b3;
+  --d-boton-bajo: #2e2040;
+  --d-seleccion: #6b3fa0;
+  --d-hover: #8455bf;
+  --d-confirmar: #2f7a6e;
+  --d-tinta: #1c1424;
+  --d-ayuda: #43364f;
+  --d-consola: #140e1c;
+  --d-suave: #d8cce6;
+  --d-mision: #2b2236;
+  --d-mision-panel: #1a1424;
+  --d-mision-alto: #251c31;
+  --d-mision-borde: #0c0812;
+  --d-mision-nodo: #45385a;
+  --d-lienzo: #241a30;
+  --d-cable: #c77dff;
+  --d-bloque-a: #dedb9c;
+  --d-bloque-b: #d2ce8a;
+  --d-bloque-c: #b9b46d;
+  --d-bloque-d: #ecebb8;
+  --d-cofre-a: #2e5654;
+  --d-cofre-b: #1f3b3a;
+  --d-cofre-c: #0b1515;
+  --d-cofre-d: #48d1b0;
+  --d-portada: url("/hero-end.jpg");
+}
+
 @theme inline {
+  --color-mc-fondo: var(--d-fondo);
+  --color-mc-piedra: var(--d-piedra);
+  --color-mc-pizarra: var(--d-pizarra);
+  --color-mc-suelo: var(--d-suelo);
+  --color-mc-tablon: var(--d-tablon);
+  --color-mc-tablon-oscuro: var(--d-tablon-oscuro);
+  --color-mc-tablon-tinta: var(--d-tablon-tinta);
+  --color-mc-menu: var(--d-menu);
+  --color-mc-menu-tinta: var(--d-menu-tinta);
+  --color-mc-menu-linea: var(--d-menu-linea);
+  --color-mc-oro: var(--d-oro);
+  --color-mc-panel: var(--d-panel);
+  --color-mc-casilla: var(--d-casilla);
+  --color-mc-boton: var(--d-boton);
+  --color-mc-seleccion: var(--d-seleccion);
+  --color-mc-hover: var(--d-hover);
+  --color-mc-confirmar: var(--d-confirmar);
+  --color-mc-tinta: var(--d-tinta);
+  --color-mc-ayuda: var(--d-ayuda);
+  --color-mc-consola: var(--d-consola);
+  --color-mc-suave: var(--d-suave);
+  --color-mc-mision: var(--d-mision);
+  --color-mc-mision-panel: var(--d-mision-panel);
+  --color-mc-mision-alto: var(--d-mision-alto);
+  --color-mc-mision-borde: var(--d-mision-borde);
+  --color-mc-mision-nodo: var(--d-mision-nodo);
+  --color-mc-lienzo: var(--d-lienzo);
+  --color-mc-cable: var(--d-cable);
   --font-pixel: var(--font-pixelify), sans-serif;
   --font-term: var(--font-vt323), monospace;
 }
 
-/* ───────── Texturas (degradados con cortes duros) ───────── */
 @utility textura-pizarra {
-  background-color: var(--color-mc-pizarra);
+  background-color: var(--d-pizarra);
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.18) 50%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.04) 50%, transparent 50%);
@@ -36,7 +175,7 @@
 }
 
 @utility textura-piedra {
-  background-color: var(--color-mc-piedra);
+  background-color: var(--d-piedra);
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.14) 50%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.05) 50%, transparent 50%),
@@ -44,8 +183,8 @@
   background-size: 20px 20px, 28px 28px, 48px 48px;
 }
 
-@utility textura-tierra {
-  background-color: var(--color-mc-tierra);
+@utility textura-suelo {
+  background-color: var(--d-suelo);
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.22) 50%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.05) 50%, transparent 50%),
@@ -54,47 +193,81 @@
 }
 
 @utility textura-tablones {
-  background-color: var(--color-mc-tablon);
+  background-color: var(--d-tablon);
   background-image:
-    repeating-linear-gradient(0deg, var(--color-mc-tablon-oscuro) 0 2px, transparent 2px 14px),
-    repeating-linear-gradient(90deg, transparent 0 120px, var(--color-mc-tablon-oscuro) 120px 122px);
+    linear-gradient(var(--d-tablon-oscuro) 2px, transparent 2px),
+    conic-gradient(from 270deg at 2px 14px, var(--d-tablon-oscuro) 25%, transparent 0),
+    conic-gradient(from 270deg at 2px 14px, var(--d-tablon-oscuro) 25%, transparent 0);
+  background-size: 120px 14px, 120px 28px, 120px 28px;
+  background-position: 0 0, 0 0, 60px 14px;
 }
 
-/* ───────── Biseles (relieve de botones y paneles) ───────── */
+@utility textura-mision {
+  background-color: var(--d-mision);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.22) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.22) 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px, 16px 16px, 16px 16px;
+}
+
+@utility textura-lienzo {
+  background-color: var(--d-lienzo);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 2px, transparent 2px);
+  background-size: 24px 24px;
+}
+
 @utility bisel-boton {
-  box-shadow: inset 3px 3px 0 #a9a9a9, inset -3px -4px 0 #3a3a3a;
-  &:hover {
-    background-color: var(--color-mc-hover);
-    box-shadow: inset 3px 3px 0 #b6bde8, inset -3px -4px 0 #3d4370;
+  box-shadow: inset 3px 3px 0 var(--d-boton-alto), inset -3px -4px 0 var(--d-boton-bajo);
+  &:hover:not(:disabled) {
+    background-color: var(--d-hover);
+    box-shadow:
+      inset 3px 3px 0 color-mix(in srgb, var(--d-hover) 55%, white),
+      inset -3px -4px 0 color-mix(in srgb, var(--d-hover) 45%, black);
   }
 }
 
 @utility bisel-boton-claro {
-  box-shadow: inset 2px 2px 0 #ffffff, inset -2px -3px 0 #6a6a6a;
-  &:hover {
-    background-color: #e4e6f5;
+  box-shadow: inset 2px 2px 0 var(--d-panel-alto), inset -2px -3px 0 var(--d-panel-bajo);
+  &:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--d-hover) 22%, white);
   }
 }
 
 @utility bisel-casilla {
-  box-shadow: inset 3px 3px 0 #2a2a2a, inset -3px -3px 0 #8f8f8f;
+  box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.55), inset -3px -3px 0 rgba(255, 255, 255, 0.28);
 }
 
 @utility bisel-panel {
-  box-shadow: inset 4px 4px 0 #ffffff, inset -4px -4px 0 #555555;
+  box-shadow: inset 4px 4px 0 var(--d-panel-alto), inset -4px -4px 0 var(--d-panel-bajo);
 }
 
 @utility sombra-titulo {
-  text-shadow: 4px 4px 0 #3f3f3f;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.55);
+}
+
+@utility sombra-texto {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
 }
 
 @layer base {
   body {
-    background: var(--color-mc-fondo);
+    background: var(--d-fondo);
     color: #ffffff;
     font-family: var(--font-term);
   }
   svg {
     shape-rendering: crispEdges;
+  }
+  button:not(:disabled):active,
+  .presionable:active {
+    outline: 3px solid #ffffff;
+    outline-offset: -3px;
+  }
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
   }
 }

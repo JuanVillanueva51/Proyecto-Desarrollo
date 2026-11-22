@@ -1,6 +1,3 @@
-// Datos propios de MCQL Workbench (no las bases de los usuarios).
-// Las bases que se crean desde el JSON se manejarán después con mysql2.
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -23,6 +20,6 @@ model Conexion {
 model Proyecto {
   id          Int      @id @default(autoincrement())
   nombre      String
-  esquemaJson String   // el JSON original del que se crea la base
+  esquemaJson String
   creadoEn    DateTime @default(now())
 }
